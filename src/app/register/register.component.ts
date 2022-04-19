@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-register',
@@ -8,10 +9,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   loginForm!: FormGroup;
-
-  constructor() {}
+  postsList = <any>[];
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
+    this.appService.getPosts().subscribe((result: any) => {
+      this.postsList = result;
+      console.log(this.postsList);
+    });
     this.loginForm = new FormGroup({
       // tslint:disable-next-line
       email: new FormControl('', [Validators.required]),

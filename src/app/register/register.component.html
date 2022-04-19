@@ -50,3 +50,22 @@
         {{loginForm.value | json}}
     </p>
 </div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>User</th>
+            <th>Body</th>
+            <th>Title</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let indVal of postsList">
+                <td>{{indVal.id}}</td>
+                <td>{{indVal.userId}}</td>
+                <td>{{indVal.title}}</td>
+                <td>{{indVal.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
