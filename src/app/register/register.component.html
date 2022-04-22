@@ -52,6 +52,10 @@
 </div>
 
 <div class="container">
+    <div class="row">
+        <input [(ngModel)]="searchText" placeholder="search text goes here">
+
+    </div>
     <table class="table">
         <thead>
             <th>ID</th>
@@ -60,7 +64,7 @@
             <th>Title</th>
         </thead>
         <tbody>
-            <tr *ngFor="let indVal of postsList">
+            <tr *ngFor="let indVal of postsList | filter: searchText">
                 <td>{{indVal.id}}</td>
                 <td>{{indVal.userId}}</td>
                 <td>{{indVal.title}}</td>

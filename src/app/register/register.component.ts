@@ -10,6 +10,7 @@ import { AppService } from '../app.service';
 export class RegisterComponent implements OnInit {
   loginForm!: FormGroup;
   postsList = <any>[];
+  searchText = '';
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
